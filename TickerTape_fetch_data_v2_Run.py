@@ -230,8 +230,8 @@ from datetime import date
 curr_date = date.today().strftime('%d-%m-%y') 
 
 
-strng_all='D:/PC Files/StockAnalysis/FetchData/Stock_Fetch_all_'+curr_date+'.xlsx'
-#strng='C:/Users/Shameel/Desktop/Stock_Fetch_'+curr_date+'.xlsx'
+strng_all='D:/Stock_Fetch_all_'+curr_date+'.xlsx'
+
 
 
 
@@ -321,14 +321,10 @@ for items in df_series_list:
 stock_names_df = pd.DataFrame(stock_names,index=['Name']).transpose()
 #xx=stock_names_df.sort_index()
     
-strng_all_ema='D:/PC Files/StockAnalysis/FetchData/Stock_Fetch_all_ema_crossover_'+curr_date+'.xlsx'
+strng_all_ema='D:/Stock_Fetch_all_ema_crossover_'+curr_date+'.xlsx'
 
 
 
-
-#strng_all_name='C:/Users/Shameel/Desktop/Stock_names_'+curr_date+'.xlsx'
-
-#xx.to_excel(strng_all_name)
 
 
 df_new_final_tail1=df_new_final.tail(3).sum().to_frame().T
@@ -336,9 +332,6 @@ for items in df_series_list:
     df_new_final_tail1[items]=np.where((df_new_final_tail1[items+'_EMA_CROSSOVER_BUY'])>=1,1,df_new_final_tail1[items+'_EMA_CROSSOVER_BUY'])
     del df_new_final_tail1[items+'_EMA_CROSSOVER_BUY']
     
-#df_new_final_tail1.to_excel('C:/Users/Shameel/Desktop/Stock_ema_crossover_15Days_'+curr_date+'.xlsx') 
-
-
 
 
 df_new_final_tail2= df_new_final_tail1.to_dict('list')
@@ -376,7 +369,6 @@ for items in df_series_list:
     df_new_final_tail3[items]=np.where((df_new_final_tail3[items+'_PRE_EMA_CROSSOVER_BUY'])>=1,1,df_new_final_tail3[items+'_PRE_EMA_CROSSOVER_BUY'])
     del df_new_final_tail3[items+'_PRE_EMA_CROSSOVER_BUY']
     
-#df_new_final_tail1.to_excel('C:/Users/Shameel/Desktop/Stock_ema_crossover_15Days_'+curr_date+'.xlsx') 
 
 
 df_new_final_tail4= df_new_final_tail3.to_dict('list')
